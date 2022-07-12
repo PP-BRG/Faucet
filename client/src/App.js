@@ -36,6 +36,7 @@ function App() {
         setPending(true)
         try {
             const res = await contract.methods.send().send({ from: accounts[0], gas: '3000000' })
+            console.log(res)
             if (res.status) {
                 alert('Success')
             }

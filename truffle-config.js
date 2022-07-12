@@ -18,10 +18,10 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
     /**
@@ -45,6 +45,7 @@ module.exports = {
             host: "127.0.0.1",     // Localhost (default: none)
             port: 7545,            // Standard Ethereum port (default: none)
             network_id: "*",       // Any network (default: none)
+            gas: 6721975
         },
         //
         // An additional network, but with some advanced options…
@@ -61,8 +62,8 @@ module.exports = {
         // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
         ropsten: {
             provider: () => new HDWalletProvider(
-                'control casual obscure comfort tone diamond pyramid quick decorate furnace alter bundle',
-                `https://ropsten.infura.io/v3/840bfbe7be0c4ded8b23a65c0b722c76`
+                mnemonic,
+                'https://ropsten.infura.io/v3/bc366c7de1c848f09477788a9c1a93ad'
             ),
             network_id: 3,       // Ropsten's id
             gas: 5500000,        // Ropsten has a lower block limit than mainnet
